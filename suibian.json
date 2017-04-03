@@ -1,0 +1,8 @@
+{ chart: { type: 'column' },
+  title: { text: 'My first Highcharts chart' },
+  xAxis: { categories: [ '苹果', '香蕉', '橙子' ] },
+  yAxis: { title: { text: 'something' } },
+  tooltip:
+   { headerFormat: '{series.name}<br>',
+     pointFormat: '{point.name}: <b>{point.percentage:.1f}%</b>' },
+  series: [ { type: 'pie', name: '浏览器访问量占比', data: [Object] } ] }

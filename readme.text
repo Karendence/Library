@@ -1,0 +1,2 @@
+使用上传图片功能时，先将图片放在qiniu/img下面对应的目录中，图片为jpg格式，图片名为数据库中对应的对象的id，然后在项目根目录下执行npm run up book或者
+npm run up news 或者npm run up user，对应不同的图片。
