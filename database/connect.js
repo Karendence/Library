@@ -2,9 +2,9 @@ const mysql = require('mysql')
 
 function getConnection() {
     var connection = mysql.createConnection({
-        host: 'localhost',
+        host: '127.0.0.1',
         user: 'root',
-        password: 'wanner1597'
+        password: '1234567'
     })
     connection.connect()
     return connection

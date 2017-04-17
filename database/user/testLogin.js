@@ -26,6 +26,27 @@ function testLogin(id, pwd) {
 
 exports.testLogin = testLogin
 
+function getChart(id) {
+  let connection = connect.getConnection()
+  let string1 = "SELECT a.type ,b.typeName,count(*) as count from library.runorrou as a ,library.runtype as b,library.user as c  where userid=\""+id+"\" and a.type=b.id and a.userid = c.id group by a.type;"
+  let deferred = Q.defer()
+  connection.query(string1, (err, data) => {
+    if(err){
+        deferred.reject(err)
+        console.log(err)
+    }
+        
+    else
+        deferred.resolve(data)
+
+  })
+  connection.end()
+  return deferred.promise
+}
+
+exports.getChart = getChart
+
+
 // testLogin(123,"dfsd").then((result)=>{
 //   if(result.length==1) console.log("111")
 //   else console.log("222")
