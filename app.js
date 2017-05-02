@@ -5,7 +5,7 @@ const multer = require('multer')
 
 
 
-//const getInfo = require('./database/user/getInfo')
+const getInfo = require('./database/user/getInfo')
 
 
 
@@ -29,7 +29,6 @@ app.all('*', function(req, res, next) {//开发模式下允许跨域访问
 
 app.post('/gettest',(req,res)=>{             //上传文件
   let id = req.query.userid
-  console.log(req)
   runStore.runStore(id,req.files.file.originalname,req.files.file.path,req.files.file.name,req.files.file.size)
   res.json({result:"success"})
 })
@@ -57,11 +56,11 @@ app.get('/biao',(req,res)=>{
 
 
 
-//app.post('/getUserInfo',(req,res)=>{//当前登录用户所有信息
-  //getInfo.getInfo(req.body.id).then((data)=>{
-    //res.json(data)
-  //})
-//})
+app.post('/getUserInfo',(req,res)=>{//当前登录用户所有信息
+  getInfo.getInfo(req.body.id).then((data)=>{
+    res.json(data)
+  })
+})
 
 
 app.post('/login',(req,res)=>{//登录
